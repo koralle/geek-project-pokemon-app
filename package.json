@@ -19,7 +19,8 @@
     "format:fix": "biome format --write",
     "check": "biome check",
     "check:fix": "biome check --write",
-    "test": "vitest"
+    "test": "vitest",
+    "tokens": "yamada-cli tokens ./src/styles/theme"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.64.2",
