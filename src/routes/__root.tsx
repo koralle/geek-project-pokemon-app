@@ -3,6 +3,7 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { createRootRouteWithContext } from '@tanstack/react-router'
 import { Outlet } from '@tanstack/react-router'
+import { UIProvider } from '@yamada-ui/react'
 import { lazy } from 'react'
 import { queryClient } from '../lib'
 
@@ -28,7 +29,9 @@ export const Route = createRootRouteWithContext<RootRouteContext>()({
     return (
       <>
         <QueryClientProvider client={queryClient}>
-          <Outlet />
+          <UIProvider>
+            <Outlet />
+          </UIProvider>
           <ReactQueryDevtools />
           <TanStackRouterDevtools />
         </QueryClientProvider>
