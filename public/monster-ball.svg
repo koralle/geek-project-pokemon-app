@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+  <style>
+    @media (prefers-color-scheme: light) {
+      .monster-ball {
+        fill: #d1d1d1;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .monster-ball {
+        fill: #262626;
+      }
+    }
+  </style>
+
+  <rect id="monster-ball" x="0" y="0" width="800" height="800" style="fill:none;"/>
+  <clipPath id="_clip1">
+    <rect id="monster-ball1" serif:id="monster-ball" x="0" y="0" width="800" height="800"/>
+  </clipPath>
+  <g class="monster-ball" clip-path="url(#_clip1)">
+    <g>
+      <path class="monster-ball__shape" d="M-0,359.981c20.195,-202.004 191.703,-359.981 400,-359.981c208.297,0 379.805,157.977 400,359.981l-244.279,-0c-17.869,-68.973 -80.854,-119.994 -155.721,-119.994c-74.867,0 -137.852,51.021 -155.721,119.994l-244.279,-0Zm800,79.996c-20.195,202.004 -191.703,359.981 -400,359.981c-208.297,-0 -379.805,-157.977 -400,-359.981l244.279,-0c17.869,68.973 80.854,119.993 155.721,119.993c74.867,0 137.852,-51.02 155.721,-119.993l244.279,-0Z" />
+      <circle class="monster-ball__circle" cx="400" cy="400" r="100" />
+    </g>
+  </g>
+</svg>
