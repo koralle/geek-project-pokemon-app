@@ -1,6 +1,41 @@
-import { Box, Card, CardBody, Center, Image, Link, Text, VStack } from '@yamada-ui/react'
+import { Box, Card, CardBody, Center, Image, Link, Skeleton, Text, VStack } from '@yamada-ui/react'
 import type { PokemonSpeciesId } from '../../../entities'
 import { usePokemonSummary } from '../hooks'
+
+const SkeltonPokemonSummaryCard = () => {
+  return (
+    <>
+      <Card w="full" rounded="2xl">
+        <CardBody>
+          <VStack gap={{ base: 8, lg: 8, md: 8, sm: 6 }}>
+            <Box position="relative">
+              <Center>
+                <Image
+                  src="/monster-ball.svg"
+                  alt="monster-ball"
+                  w={{ base: '160px', lg: '160px', md: '120px', sm: '120px' }}
+                  h={{ base: '160px', lg: '160px', md: '120px', sm: '120px' }}
+                  aria-hidden
+                  position="relative"
+                  decoding="async"
+                />
+                <Text fontSize={{ base: 'lg', md: 'md' }} position="absolute" fontWeight="bold">
+                  Now
+                  <br />
+                  Loading...
+                </Text>
+              </Center>
+            </Box>
+
+            <Skeleton w="full">
+              <Text fontSize={{ base: 'lg', md: 'md' }}>Skelton</Text>
+            </Skeleton>
+          </VStack>
+        </CardBody>
+      </Card>
+    </>
+  )
+}
 
 interface PokemonSummaryCardProps {
   id: PokemonSpeciesId
@@ -50,4 +85,4 @@ const PokemonSummaryCard = ({ id, detailPageUrl }: PokemonSummaryCardProps) => {
   )
 }
 
-export { PokemonSummaryCard }
+export { PokemonSummaryCard, SkeltonPokemonSummaryCard }

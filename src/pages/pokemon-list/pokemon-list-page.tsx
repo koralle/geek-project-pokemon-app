@@ -1,6 +1,6 @@
 import { Box, Center, Container, Heading, Text, VStack } from '@yamada-ui/react'
 import { Suspense, useState } from 'react'
-import { PokemonCollection, PokemonCollectionPagination } from './components'
+import { PokemonCollection, PokemonCollectionPagination, SkeltonPokemonCollection } from './components'
 import { SetTotalContext, TotalContext } from './lib'
 
 export const PokemonListPage = () => {
@@ -22,7 +22,7 @@ export const PokemonListPage = () => {
                   </Text>
                 </VStack>
               </Box>
-              <Suspense>
+              <Suspense fallback={<SkeltonPokemonCollection />}>
                 <PokemonCollection />
               </Suspense>
               <Box as="footer">
