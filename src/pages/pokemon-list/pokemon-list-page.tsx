@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { Box, Center, Container, Heading, Text, VStack } from '@yamada-ui/react'
+import { Suspense, useState } from 'react'
+import { PokemonCollection } from './components'
 import { SetTotalContext, TotalContext } from './lib'
 
 export const PokemonListPage = () => {
@@ -7,7 +9,25 @@ export const PokemonListPage = () => {
   return (
     <SetTotalContext.Provider value={{ setTotal }}>
       <TotalContext.Provider value={{ total }}>
-        <h1>ポケモン一覧ページ</h1>
+        <Center>
+          <Container maxW={960} h="full">
+            <VStack gap={{ base: 12, lg: 10, md: 8 }}>
+              <Box as="header">
+                <VStack as="hgroup" gap={{ base: 6, lg: 4, md: 4, sm: 4 }}>
+                  <Heading as="h1" w="full" textAlign="center">
+                    ポケモン一覧
+                  </Heading>
+                  <Text w="full" textAlign="center" fontSize={{ base: 'xl', sm: 'md' }}>
+                    好きなポケモンをクリックしてみよう！
+                  </Text>
+                </VStack>
+              </Box>
+              <Suspense>
+                <PokemonCollection />
+              </Suspense>
+            </VStack>
+          </Container>
+        </Center>
       </TotalContext.Provider>
     </SetTotalContext.Provider>
   )
