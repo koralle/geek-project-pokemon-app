@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
-import type { AbilityId } from '../../../../entities'
-import { DEFAULT_CACHE_STALE_TIME, getAbility } from '../../../../lib'
+import type { AbilityId } from '../../../../entities/ability'
+import { getAbility } from '../../../../lib/api/ability'
+import { DEFAULT_CACHE_STALE_TIME } from '../../../../lib/constants'
 
 const useAbility = (abilityId: AbilityId) => {
   const abilityQuery = useSuspenseQuery({

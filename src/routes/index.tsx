@@ -1,10 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { zodValidator } from '@tanstack/zod-adapter'
 import { z } from 'zod'
-import { pokemonSpeciesIdSchema } from '../entities'
-import { DEFAULT_CACHE_STALE_TIME } from '../lib'
-import { PokemonListPage } from '../pages'
-import { pokemonSpeciesListQueryOptions } from '../pages'
+import { pokemonSpeciesIdSchema } from '../entities/pokemon'
+import { DEFAULT_CACHE_STALE_TIME } from '../lib/constants'
+import { pokemonSpeciesListQueryOptions } from '../pages/pokemon-list/hooks/use-pokemon-list'
+import { PokemonListPage } from '../pages/pokemon-list/pokemon-list-page'
 
 const paginationSchema = z.object({
   page: pokemonSpeciesIdSchema.catch(pokemonSpeciesIdSchema.parse(1)),

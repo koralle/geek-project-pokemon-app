@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
-import type { EggGroupId } from '../../../../entities'
-import { DEFAULT_CACHE_STALE_TIME, getEggGroup } from '../../../../lib'
+import type { EggGroupId } from '../../../../entities/egg-group'
+import { getEggGroup } from '../../../../lib/api/egg-group'
+import { DEFAULT_CACHE_STALE_TIME } from '../../../../lib/constants'
 
 const useEggGroup = (eggGroupId: EggGroupId) => {
   const eggGroupQuery = useSuspenseQuery({

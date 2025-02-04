@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { type PokemonSpeciesId, pokemonSpeciesIdSchema } from '../../../../entities'
-import { DEFAULT_CACHE_STALE_TIME, parseNumberFromUrl } from '../../../../lib'
+import { type PokemonSpeciesId, pokemonSpeciesIdSchema } from '../../../../entities/pokemon'
+import { DEFAULT_CACHE_STALE_TIME } from '../../../../lib/constants'
+import { parseNumberFromUrl } from '../../../../lib/utils/parse'
 import { type GetRawPokemonSpeciesListResponse, getRawPokemonSpeciesList } from '../../lib'
 
 export interface PokemonSpeciesList {

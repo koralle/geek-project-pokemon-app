@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { renderHook, waitFor } from '@testing-library/react'
 import type { ReactNode } from 'react'
 import { useAbility } from '.'
-import { abilityIdSchema } from '../../../../entities'
+import { abilityIdSchema } from '../../../../entities/ability'
 
 describe('usePokemonAbility', () => {
   test('should return a ability name in Japanese', async () => {

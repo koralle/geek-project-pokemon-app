@@ -3,13 +3,11 @@ import { renderHook, waitFor } from '@testing-library/react'
 import type { ReactNode } from 'react'
 import type { PokemonDetail } from '.'
 import { usePokemonDetail } from '.'
-import {
-  abilityIdSchema,
-  eggGroupIdSchema,
-  pokedexNumberSchema,
-  pokemonSpeciesIdSchema,
-  typeIdSchema,
-} from '../../../../entities'
+import { abilityIdSchema } from '../../../../entities/ability'
+import { eggGroupIdSchema } from '../../../../entities/egg-group'
+import { pokedexNumberSchema } from '../../../../entities/pokedex-number'
+import { pokemonSpeciesIdSchema } from '../../../../entities/pokemon'
+import { typeIdSchema } from '../../../../entities/type'
 
 describe('usePokemonDetail', () => {
   test('should return a detail of Pecharunt', async () => {

@@ -3,7 +3,9 @@ import { renderHook, waitFor } from '@testing-library/react'
 import type { ReactNode } from 'react'
 import { usePokemonSummary } from '.'
 import type { PokemonSummary } from '.'
-import { pokedexNumberSchema, pokemonSpeciesIdSchema, typeIdSchema } from '../../../../entities'
+import { pokedexNumberSchema } from '../../../../entities/pokedex-number'
+import { pokemonSpeciesIdSchema } from '../../../../entities/pokemon'
+import { typeIdSchema } from '../../../../entities/type'
 
 describe('usePokemonSummary', () => {
   test('should return a summary of Pecharunt', async () => {

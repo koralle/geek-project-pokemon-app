@@ -1,21 +1,16 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { z } from 'zod'
-import {
-  type PokemonId,
-  type PokemonSpeciesId,
-  abilityIdSchema,
-  eggGroupIdSchema,
-  pokedexNumberSchema,
-  pokemonIdSchema,
-  pokemonSpeciesIdSchema,
-  typeIdSchema,
-} from '../../../../entities'
-import {
-  type GetRawPokemonSpeciesResponse,
-  parseNumberFromUrl,
-  pokemonQueryOptions,
-  pokemonSpeciesQueryOptions,
-} from '../../../../lib'
+import type { PokemonId, PokemonSpeciesId } from '../../../../entities/pokemon'
+import type { GetRawPokemonSpeciesResponse } from '../../../../lib/api/pokemon-species'
+import { pokemonQueryOptions } from '../../../../lib/query-options/pokemon'
+import { pokemonSpeciesQueryOptions } from '../../../../lib/query-options/pokemon-species'
+
+import { abilityIdSchema } from '../../../../entities/ability'
+import { eggGroupIdSchema } from '../../../../entities/egg-group'
+import { pokedexNumberSchema } from '../../../../entities/pokedex-number'
+import { pokemonIdSchema, pokemonSpeciesIdSchema } from '../../../../entities/pokemon'
+import { typeIdSchema } from '../../../../entities/type'
+import { parseNumberFromUrl } from '../../../../lib/utils/parse'
 
 const pokemonDetailSchema = z.object({
   id: pokemonSpeciesIdSchema,

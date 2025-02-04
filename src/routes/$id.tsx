@@ -1,7 +1,10 @@
 import { createFileRoute, notFound } from '@tanstack/react-router'
-import { pokemonIdSchema, pokemonSpeciesIdSchema } from '../entities'
-import { DEFAULT_CACHE_STALE_TIME, parseNumberFromUrl, pokemonQueryOptions, pokemonSpeciesQueryOptions } from '../lib'
-import { PokemonDetailPage } from '../pages'
+import { pokemonIdSchema, pokemonSpeciesIdSchema } from '../entities/pokemon'
+import { DEFAULT_CACHE_STALE_TIME } from '../lib/constants'
+import { pokemonQueryOptions } from '../lib/query-options/pokemon'
+import { pokemonSpeciesQueryOptions } from '../lib/query-options/pokemon-species'
+import { parseNumberFromUrl } from '../lib/utils/parse'
+import { PokemonDetailPage } from '../pages/pokemon-detail/pokemon-detail-page'
 
 export const Route = createFileRoute('/$id')({
   component: PokemonDetailPage,

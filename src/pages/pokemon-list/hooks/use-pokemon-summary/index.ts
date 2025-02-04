@@ -1,15 +1,14 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
-import {
-  type PokedexNumber,
-  type PokemonSpeciesId,
-  type TypeId,
-  pokedexNumberSchema,
-  pokemonIdSchema,
-  pokemonSpeciesIdSchema,
-  typeIdSchema,
-} from '../../../../entities'
-import { parseNumberFromUrl, pokemonQueryOptions, pokemonSpeciesQueryOptions } from '../../../../lib'
-import type { GetRawPokemonSpeciesResponse } from '../../../../lib'
+import type { PokedexNumber } from '../../../../entities/pokedex-number'
+import { pokedexNumberSchema } from '../../../../entities/pokedex-number'
+import type { PokemonSpeciesId } from '../../../../entities/pokemon'
+import { pokemonIdSchema, pokemonSpeciesIdSchema } from '../../../../entities/pokemon'
+import type { TypeId } from '../../../../entities/type'
+import { typeIdSchema } from '../../../../entities/type'
+import type { GetRawPokemonSpeciesResponse } from '../../../../lib/api/pokemon-species'
+import { pokemonQueryOptions } from '../../../../lib/query-options/pokemon'
+import { pokemonSpeciesQueryOptions } from '../../../../lib/query-options/pokemon-species'
+import { parseNumberFromUrl } from '../../../../lib/utils/parse'
 
 export interface PokemonSummary {
   id: PokemonSpeciesId

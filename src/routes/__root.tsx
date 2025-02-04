@@ -5,7 +5,7 @@ import { createRootRouteWithContext } from '@tanstack/react-router'
 import { Outlet } from '@tanstack/react-router'
 import { UIProvider } from '@yamada-ui/react'
 import { lazy } from 'react'
-import { queryClient } from '../lib'
+import { queryClient } from '../lib/query-client'
 
 const TanStackRouterDevtools =
   // @ts-ignore

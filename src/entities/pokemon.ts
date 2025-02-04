@@ -1,8 +1,8 @@
 import { z } from 'zod'
-import { abilitySchema } from '../ability'
-import { eggGroupSchema } from '../egg-group'
-import { pokedexNumberSchema } from '../pokedex-number'
-import { typeSchema } from '../type'
+import { abilitySchema } from './ability'
+import { eggGroupSchema } from './egg-group'
+import { pokedexNumberSchema } from './pokedex-number'
+import { typeSchema } from './type'
 
 export const pokemonIdSchema = z.number().int().positive().brand('PokemonId')
 export const pokemonSpeciesIdSchema = z.number().int().positive().brand('PokemonSpeciesId')

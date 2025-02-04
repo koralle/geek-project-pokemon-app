@@ -1,6 +1,7 @@
 import { queryOptions } from '@tanstack/react-query'
-import type { PokemonSpeciesId } from '../../entities'
-import { DEFAULT_CACHE_STALE_TIME, getPokemonSpecies } from '../../lib'
+import type { PokemonSpeciesId } from '../../entities/pokemon'
+import { getPokemonSpecies } from '../../lib/api/pokemon-species'
+import { DEFAULT_CACHE_STALE_TIME } from '../../lib/constants'
 
 export const pokemonSpeciesQueryOptions = (pokemonSpeciesId: PokemonSpeciesId) =>
   queryOptions({

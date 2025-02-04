@@ -1,6 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
-import type { TypeId } from '../../../../entities'
-import { DEFAULT_CACHE_STALE_TIME, getPokemonType } from '../../../../lib'
+import type { TypeId } from '../../../../entities/type'
+import { getPokemonType } from '../../../../lib/api/type'
+import { DEFAULT_CACHE_STALE_TIME } from '../../../../lib/constants'
 
 const usePokemonType = (typeId: TypeId) => {
   const typeQuery = useSuspenseQuery({

@@ -1,4 +1,4 @@
-import { POKEAPI_BASE_URL } from '../../../../../lib'
+import { POKEAPI_BASE_URL } from '../../../../../lib/constants'
 import { getRawPokemonSpeciesListResponseSchema } from './schema'
 import type { GetRawPokemonSpeciesListResponse } from './schema'
 

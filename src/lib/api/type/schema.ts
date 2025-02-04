@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { typeIdSchema } from '../../../entities'
+import { typeIdSchema } from '../../../entities/type'
 
 const getRawTypeResponseSchema = z.object({
   damage_relations: z.object({

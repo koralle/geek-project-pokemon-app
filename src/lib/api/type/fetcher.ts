@@ -1,5 +1,5 @@
-import type { TypeId } from '../../../entities'
-import { POKEAPI_BASE_URL } from '../../../lib'
+import type { TypeId } from '../../../entities/type'
+import { POKEAPI_BASE_URL } from '../../../lib/constants'
 import { getRawTypeResponseSchema } from './schema'
 import type { GetRawTypeResponse } from './schema'
 
