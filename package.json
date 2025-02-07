@@ -24,10 +24,6 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.64.2",
-    "@tanstack/react-router": "^1.97.21",
-    "@tanstack/zod-adapter": "^1.97.21",
-    "@yamada-ui/lucide": "^1.10.3",
-    "@yamada-ui/react": "^1.7.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "zod": "^3.24.1"
@@ -35,8 +31,6 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@tanstack/react-query-devtools": "^5.64.2",
-    "@tanstack/router-devtools": "^1.97.21",
-    "@tanstack/router-plugin": "^1.97.22",
     "@testing-library/react": "^16.2.0",
     "@tsconfig/strictest": "^2.0.5",
     "@types/node": "^22.10.10",
