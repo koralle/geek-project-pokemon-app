@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview",
+    "preview": "npm run build && wrangler pages dev ./dist",
+    "deploy": "npm run build && wrangler pages deploy ./dist",
     "lint": "biome lint",
     "lint:fix": "biome lint --write",
     "format": "biome format",
