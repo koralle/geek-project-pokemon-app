@@ -4,9 +4,9 @@
 
 コードスタイルと構造については以下のルールを遵守してください。
 
-- ファイル名はスネークケースで命名する
-- 変数名や関数名などの識別子名はキャメルケースで記述する。ただし、Reactコンポーネント名はPascalCaseで記述する
-- ファイルのインポートは相対パスで記述する
+- ファイル名はスネークケースで命名する。
+- 変数名や関数名などの識別子名はキャメルケースで記述する。ただし、Reactコンポーネント名はPascalCaseで記述する。
+- ファイルのインポートは相対パスで記述する。
 - モジュールのimport時、型のみをimportする場合は、`import type { 型名 } from 'モジュール名'`のように記述する。
 - 型以外のものをimportする場合は、`import { 関数名 } from 'モジュール名'`のように記述する。
 
@@ -41,19 +41,24 @@
 ```
 /
 └─ src
-      ├─ - pages
-      │     ├─ - components               # ページごとのコンポーネント
-      │     ├─ - hooks                    # ページごとのフック
-      │     └─ - lib                      # ページごとのライブラリ
-      │           └─ - api
-      │                 ├─ - schema.ts      # APIのスキーマ定義
-      │                 └─ - fetcher.ts     # APIのフェッチ関数
-      ├─ - components                     # グローバルなコンポーネント
-      ├─ - hooks                          # グローバルなフック
-      ├─ - routes                         # TanStack Routerのルーティング設定
-      └─ - lib                            # グローバルなライブラリ
-            ├─ - api
-            │     ├─ - schema.ts          # APIのスキーマ定義
-            │     └─ - fetcher.ts         # APIのフェッチ関数
-            └─ - utils                    # グローバルなユーティリティ関数
+      ├─ app.tsx                          # アプリケーションのルートコンポーネント
+      ├─ main.tsx                         # エントリーポイント
+      ├─ entities                         # ドメインエンティティの型定義
+      ├─ components                       # グローバルなコンポーネント
+      │     ├─ layout                     # レイアウトコンポーネント
+      │     ├─ list                       # 一覧表示関連のコンポーネント
+      │     └─ detail                     # 詳細表示関連のコンポーネント
+      ├─ hooks                            # グローバルなフック
+      ├─ lib                              # グローバルなライブラリ
+      │     ├─ api                        # API関連の処理
+      │     ├─ constants.ts               # 定数定義
+      │     ├─ contexts                   # Reactコンテキスト
+      │     ├─ query-client.ts            # TanStack Query設定
+      │     └─ utils                      # ユーティリティ関数
+      └─ styles                           # スタイル関連
+            ├─ index.ts                   # テーマ設定
+            ├─ config.ts                  # UIの設定
+            ├─ breakpoints.ts             # ブレークポイント設定
+            ├─ semantics.ts               # セマンティックトークン
+            └─ tokens.ts                  # デザイントークン
 ```

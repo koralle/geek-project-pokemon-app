@@ -1,14 +1,13 @@
 import { MoonIcon, SunIcon } from '@yamada-ui/lucide'
 import { Box, Center, Grid, HStack, IconButton, Image, Spacer, Text, useColorMode } from '@yamada-ui/react'
+import { memo } from 'react'
 import type { ReactNode } from 'react'
 
-const Wrapper = ({ children }: { children: ReactNode }) => {
-  return (
-    <Box maxW={960} minW={320} w="100%" px={{ base: 4, md: 8 }} py={6} h="100%">
-      {children}
-    </Box>
-  )
-}
+const Wrapper = ({ children }: { children: ReactNode }) => (
+  <Box maxW={960} minW={320} w="100%" px={{ base: 4, md: 8 }} py={6} h="100%">
+    {children}
+  </Box>
+)
 
 const ToggleColorModeButton = () => {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -41,9 +40,9 @@ const Header = () => {
       <Wrapper>
         <HStack>
           {colorMode === 'light' ? (
-            <Image src="title.png" alt="ポケモンずかん" decoding="auto" />
+            <Image src="title.png" alt="ポケモンずかん" decoding="auto" fetchPriority="high" />
           ) : (
-            <Image src="title-dark.png" alt="ポケモンずかん" decoding="auto" />
+            <Image src="title-dark.png" alt="ポケモンずかん" decoding="auto" fetchPriority="high" />
           )}
           <Spacer />
           <ToggleColorModeButton />
@@ -53,25 +52,21 @@ const Header = () => {
   )
 }
 
-const Main = ({ children }: { children: ReactNode }) => {
-  return (
-    <Center as="main" id="main" minH="100%">
-      <Wrapper>{children}</Wrapper>
-    </Center>
-  )
-}
+const Main = ({ children }: { children: ReactNode }) => (
+  <Center as="main" id="main" minH="100%">
+    <Wrapper>{children}</Wrapper>
+  </Center>
+)
 
-const Footer = () => {
-  return (
-    <Center as="footer">
-      <Wrapper>
-        <Center>
-          <Text>&copy; 2025 koralle</Text>
-        </Center>
-      </Wrapper>
-    </Center>
-  )
-}
+const Footer = memo(() => (
+  <Center as="footer">
+    <Wrapper>
+      <Center>
+        <Text>&copy; 2025 koralle</Text>
+      </Center>
+    </Wrapper>
+  </Center>
+))
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (

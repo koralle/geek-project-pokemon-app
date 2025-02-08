@@ -3,7 +3,7 @@ import { renderHook, waitFor } from '@testing-library/react'
 import type { ReactNode } from 'react'
 import type { PokemonSpeciesList } from '.'
 import { usePokemonSpeciesList } from '.'
-import { pokemonSpeciesIdSchema } from '../../entities/pokemon'
+import { pokemonSpeciesIdSchema } from '../../entities'
 
 describe('usePokemonSpeciesList', () => {
   test('should return the pokemon species list', async () => {

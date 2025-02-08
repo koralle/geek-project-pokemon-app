@@ -2,8 +2,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { renderHook, waitFor } from '@testing-library/react'
 import type { ReactNode } from 'react'
 import { usePokemon } from '.'
-import { pokemonSchema, pokemonSpeciesIdSchema } from '../../entities/pokemon'
-import type { Pokemon } from '../../entities/pokemon'
+import type { Pokemon } from '../../entities'
+import { pokemonSchema, pokemonSpeciesIdSchema } from '../../entities'
 
 describe('usePokemonDetail', () => {
   test('should return a detail of Pecharunt', async () => {

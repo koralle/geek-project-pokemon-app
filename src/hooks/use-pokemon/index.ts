@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
+import type { Pokemon, PokemonSpeciesId } from '../../entities'
 import { abilitySchema, eggGroupSchema, pokedexNumberSchema, typeSchema } from '../../entities'
 import { pokemonIdSchema, pokemonSchema, pokemonSpeciesIdSchema } from '../../entities/pokemon'
-import type { Pokemon, PokemonSpeciesId } from '../../entities/pokemon'
 import { getPokemon } from '../../lib/api/pokemon'
 import { getPokemonSpecies } from '../../lib/api/pokemon-species'
 import type { GetRawPokemonSpeciesResponse } from '../../lib/api/pokemon-species'

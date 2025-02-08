@@ -13,21 +13,11 @@ import {
   Text,
   VStack,
 } from '@yamada-ui/react'
-import { useId } from 'react'
-import type { Ability, EggGroup, Type } from '../../entities'
-import type { PokedexNumber } from '../../entities/pokedex-number'
+import { memo, useId } from 'react'
+import type { Pokemon } from '../../entities'
 import { PokemonDataList } from './data-list'
 
-interface PokemonDetail {
-  name: string
-  nationalPokedexNumber: PokedexNumber
-  imageSrc: string
-  types: Type[]
-  eggGroups: EggGroup[]
-  abilities: Ability[]
-  height: number
-  weight: number
-}
+interface PokemonDetail extends Pokemon {}
 
 interface PokemonModalDialogProps {
   open: boolean
@@ -35,14 +25,15 @@ interface PokemonModalDialogProps {
   pokemonDetail: PokemonDetail
 }
 
-export const PokemonModalDialog = ({ open, onClose, pokemonDetail }: PokemonModalDialogProps) => {
+export const PokemonModalDialog = memo(({ open, onClose, pokemonDetail }: PokemonModalDialogProps) => {
   const modalLabelId = useId()
+  const { name, nationalPokedexNumber, imageSrc, types, eggGroups, abilities, height, weight } = pokemonDetail
 
   return (
     <Modal
       open={open}
       onClose={onClose}
-      size={{ base: 'lg', md: '4xl', xl: '5xl' }}
+      size={{ base: 'lg', md: '3xl', lg: '4xl' }}
       rounded="2xl"
       animation="bottom"
       duration={0.4}
@@ -50,51 +41,54 @@ export const PokemonModalDialog = ({ open, onClose, pokemonDetail }: PokemonModa
     >
       <ModalOverlay backdropFilter="blur(10px)" />
 
-      <ModalHeader>
-        <Text>ポケモン詳細</Text>
+      <ModalHeader p={6}>
+        <Text textAlign="center" w="100%">
+          ポケモン詳細
+        </Text>
       </ModalHeader>
 
-      <ModalBody as={VStack} alignItems="center">
+      <ModalBody as={VStack} alignItems="center" gap={{ base: 8, lg: 10 }} p={6} pt={0} my={0}>
         <Heading id={modalLabelId} textAlign="center">
-          #{pokemonDetail.nationalPokedexNumber} {pokemonDetail.name}
+          #{nationalPokedexNumber} {name}
         </Heading>
-        <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={{ base: 8, md: 16 }}>
+        <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={{ base: 8, lg: 10 }}>
           <Box position="relative">
             <Center>
               <Image
                 src="/monster-ball.svg"
-                alt="monster-ball"
-                w={{ base: 320, md: 360 }}
-                h={{ base: 320, md: 360 }}
+                alt=""
+                w={{ base: 280, lg: 320 }}
+                h={{ base: 280, lg: 320 }}
                 position="relative"
                 aria-hidden
+                opacity={0.8}
               />
               <Image
                 position="absolute"
-                src={pokemonDetail.imageSrc}
-                alt={pokemonDetail.name}
-                w={{ base: 320, md: 360 }}
-                h={{ base: 320, md: 360 }}
+                src={imageSrc}
+                alt={name}
+                w={{ base: 280, lg: 320 }}
+                h={{ base: 280, lg: 320 }}
                 decoding="auto"
               />
             </Center>
           </Box>
-          <Box px={{ base: 0, md: '2rem' }} py="2rem">
+          <Box>
             <PokemonDataList
-              nationalPokedexNumber={pokemonDetail.nationalPokedexNumber}
-              abilities={pokemonDetail.abilities}
-              eggGroups={pokemonDetail.eggGroups}
-              types={pokemonDetail.types}
-              height={pokemonDetail.height}
-              weight={pokemonDetail.weight}
+              nationalPokedexNumber={nationalPokedexNumber}
+              abilities={abilities}
+              eggGroups={eggGroups}
+              types={types}
+              height={height}
+              weight={weight}
             />
           </Box>
         </Grid>
       </ModalBody>
 
-      <ModalFooter>
+      <ModalFooter p={6}>
         <Button onClick={onClose}>戻る</Button>
       </ModalFooter>
     </Modal>
   )
-}
+})

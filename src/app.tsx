@@ -1,5 +1,6 @@
 import { Box, Center, Container, Heading, Text, VStack } from '@yamada-ui/react'
-import { type ReactNode, Suspense, useId, useState } from 'react'
+import { Suspense, useId, useState } from 'react'
+import type { ReactNode } from 'react'
 import { PokemonCollection } from './components/list/collection'
 import { PokemonCollectionPagination } from './components/list/pagination'
 import { PageContext, SetPageContext } from './lib/contexts/page-context'

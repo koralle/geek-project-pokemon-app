@@ -4,7 +4,7 @@
   <style>
     @media (prefers-color-scheme: light) {
       .monster-ball {
-        fill: #d1d1d1;
+        fill: #fcfcfc;
       }
     }
 

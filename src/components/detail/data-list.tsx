@@ -1,107 +1,84 @@
-import { DataList, DataListDescription, DataListItem, DataListTerm, HStack, Tag, Text, VStack } from '@yamada-ui/react'
-import type { Ability, EggGroup, Type } from '../../entities'
-import type { PokedexNumber } from '../../entities/pokedex-number'
-import { translateAbility, translateEggGroup, translateType } from '../../lib/translaters'
+import { DataList, DataListDescription, DataListItem, DataListTerm, HStack, Tag, Text } from '@yamada-ui/react'
+import type { ReactNode } from 'react'
+import type { Ability, EggGroup, PokedexNumber, Type } from '../../entities'
+import { translateAbility, translateEggGroup, translateType } from '../../lib/translators'
 
-const NationalPokedexNumberItem = ({ nationalPokedexNumber }: { nationalPokedexNumber: PokedexNumber }) => {
-  return (
-    <DataListItem>
-      <DataListTerm>
-        <Text fontWeight="bold">図鑑No.</Text>
-      </DataListTerm>
-      <DataListDescription>
-        <Text>{nationalPokedexNumber}</Text>
-      </DataListDescription>
-    </DataListItem>
-  )
-}
+const DataListItemWrapper = ({ termNode, descriptionNode }: { termNode: ReactNode; descriptionNode: ReactNode }) => (
+  <DataListItem>
+    <DataListTerm>{termNode}</DataListTerm>
+    <DataListDescription alignItems="flex-start">{descriptionNode}</DataListDescription>
+  </DataListItem>
+)
 
-interface AbilityProps {
-  abilities: Ability[]
-}
+const NationalPokedexNumberItem = ({ nationalPokedexNumber }: { nationalPokedexNumber: PokedexNumber }) => (
+  <DataListItemWrapper
+    termNode={<Text fontWeight="bold">図鑑No.</Text>}
+    descriptionNode={<Text>{nationalPokedexNumber}</Text>}
+  />
+)
 
-const AbilityItem = ({ abilities }: AbilityProps) => {
-  return (
-    <DataListItem>
-      <DataListTerm>
-        <Text fontWeight="bold">特性</Text>
-      </DataListTerm>
-      <DataListDescription alignItems="flex-start">
-        {abilities.map(({ name, hidden }) => (
-          <Text key={name}>
-            {translateAbility(name)} {hidden ? '（隠れ特性）' : ''}
-          </Text>
+const AbilityItem = ({ abilities }: { abilities: Ability[] }) => (
+  <DataListItemWrapper
+    termNode={<Text fontWeight="bold">特性</Text>}
+    descriptionNode={abilities.map(({ name, hidden }) => (
+      <Text key={name}>
+        {translateAbility(name)} {hidden ? '（隠れ特性）' : ''}
+      </Text>
+    ))}
+  />
+)
+
+const EggGroupItem = ({ eggGroups }: { eggGroups: EggGroup[] }) => (
+  <DataListItemWrapper
+    termNode={<Text fontWeight="bold">タマゴグループ</Text>}
+    descriptionNode={eggGroups.map((eggGroup) => <Text key={eggGroup}>{translateEggGroup(eggGroup)}</Text>)}
+  />
+)
+
+const TypeItem = ({ types }: { types: Type[] }) => (
+  <DataListItemWrapper
+    termNode={<Text fontWeight="bold">タイプ</Text>}
+    descriptionNode={
+      <HStack>
+        {types.map((type) => (
+          <Tag key={type} variant="solid" colorScheme={type}>
+            <Text fontWeight="bold">{translateType(type)}</Text>
+          </Tag>
         ))}
-      </DataListDescription>
-    </DataListItem>
-  )
-}
-
-const EggGroupItem = ({ eggGroups }: { eggGroups: EggGroup[] }) => {
-  return (
-    <DataListItem>
-      <DataListTerm>
-        <Text fontWeight="bold">タマゴグループ</Text>
-      </DataListTerm>
-      <DataListDescription>
-        {eggGroups.map((eggGroup) => (
-          <Text key={eggGroup}>{translateEggGroup(eggGroup)}</Text>
-        ))}
-      </DataListDescription>
-    </DataListItem>
-  )
-}
-
-const TypeItem = ({ types }: { types: Type[] }) => {
-  return (
-    <DataListItem>
-      <DataListTerm>
-        <Text fontWeight="bold">タイプ</Text>
-      </DataListTerm>
-      <DataListDescription>
-        <HStack>
-          {types.map((type) => (
-            <Tag key={type} variant="solid" colorScheme={type}>
-              <Text fontWeight="bold">{translateType(type)}</Text>
-            </Tag>
-          ))}
-        </HStack>
-      </DataListDescription>
-    </DataListItem>
-  )
-}
+      </HStack>
+    }
+  />
+)
 
 const HeightItem = ({ height }: { height: number }) => {
   const heightText = (height / 10) % 1 === 0 ? `${height / 10}.0` : `${height / 10}`
   const unit = 'm'
+
   return (
-    <DataListItem>
-      <DataListTerm>
-        <Text fontWeight="bold">高さ</Text>
-      </DataListTerm>
-      <DataListDescription>
+    <DataListItemWrapper
+      termNode={<Text fontWeight="bold">高さ</Text>}
+      descriptionNode={
         <Text>
           {heightText} {unit}
         </Text>
-      </DataListDescription>
-    </DataListItem>
+      }
+    />
   )
 }
 
 const WeightItem = ({ weight }: { weight: number }) => {
   const weightText = (weight / 10) % 1 === 0 ? `${weight / 10}.0` : `${weight / 10}`
   const unit = 'kg'
+
   return (
-    <DataListItem>
-      <DataListTerm>
-        <Text fontWeight="bold">重さ</Text>
-      </DataListTerm>
-      <DataListDescription>
+    <DataListItemWrapper
+      termNode={<Text fontWeight="bold">重さ</Text>}
+      descriptionNode={
         <Text>
           {weightText} {unit}
         </Text>
-      </DataListDescription>
-    </DataListItem>
+      }
+    />
   )
 }
 
@@ -121,15 +98,13 @@ export const PokemonDataList = ({
   height,
   weight,
   nationalPokedexNumber,
-}: PokemonDataListProps) => {
-  return (
-    <DataList col={2} rowGap="1rem" columnGap="2rem">
-      <NationalPokedexNumberItem nationalPokedexNumber={nationalPokedexNumber} />
-      <TypeItem types={types} />
-      <HeightItem height={height} />
-      <WeightItem weight={weight} />
-      <AbilityItem abilities={abilities} />
-      <EggGroupItem eggGroups={eggGroups} />
-    </DataList>
-  )
-}
+}: PokemonDataListProps) => (
+  <DataList col={2} rowGap="1rem" columnGap="2rem">
+    <NationalPokedexNumberItem nationalPokedexNumber={nationalPokedexNumber} />
+    <TypeItem types={types} />
+    <HeightItem height={height} />
+    <WeightItem weight={weight} />
+    <AbilityItem abilities={abilities} />
+    <EggGroupItem eggGroups={eggGroups} />
+  </DataList>
+)

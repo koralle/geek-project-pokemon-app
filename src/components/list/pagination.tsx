@@ -4,16 +4,20 @@ import { DEFAULT_LIMIT, DEFAULT_PAGE } from '../../lib/constants'
 import { usePageContext, useSetPageContext } from '../../lib/contexts/page-context'
 import { useTotalContext } from '../../lib/contexts/total-context'
 
-const useIsMobile = () => {
+const useMobile = () => {
   const breakpoint = useBreakpoint()
-  return breakpoint === 'base' || ['xs', 'sm'].includes(breakpoint)
+  const isMobile = breakpoint === 'base' || ['xs', 'sm'].includes(breakpoint)
+
+  return {
+    isMobile,
+  }
 }
 
 export const PokemonCollectionPagination = () => {
   const { page } = usePageContext()
   const { setPage } = useSetPageContext()
   const { total } = useTotalContext()
-  const isMobile = useIsMobile()
+  const { isMobile } = useMobile()
 
   const handlePageChange = (newPage: number) => {
     startTransition(() => {

@@ -1,4 +1,5 @@
-import { type ThemeTokens, generate } from '@yamada-ui/react'
+import { generate } from '@yamada-ui/react'
+import type { ThemeTokens } from '@yamada-ui/react'
 
 export const colors: ThemeTokens = {
   pokedex: generate.tones('#b94646'),
