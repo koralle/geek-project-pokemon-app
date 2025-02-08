@@ -20,7 +20,7 @@
     "check": "biome check",
     "check:fix": "biome check --write",
     "test": "vitest",
-    "tokens": "yamada-cli tokens ./src/styles/theme"
+    "theme": "yamada-cli tokens ./src/styles"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.64.2",
