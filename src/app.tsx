@@ -25,27 +25,29 @@ export const App = () => {
 
   return (
     <Provider>
-      <Center>
-        <VStack as={Container} gap={10} aria-labelledby={headingId}>
-          <Box as="header">
-            <VStack id={headingId} as="hgroup" gap={{ base: 6, lg: 4 }}>
-              <Heading as="h1" w="full" textAlign="center">
-                ポケモン一覧
-              </Heading>
-              <Text w="full" textAlign="center" fontSize={{ base: 'xl', sm: 'md' }}>
-                好きなポケモンを探そう！
-              </Text>
-            </VStack>
-          </Box>
+      <Center h="100%">
+        <Container p={0} h="100%">
+          <VStack gap={10} aria-labelledby={headingId} h="100%">
+            <Box as="header">
+              <VStack id={headingId} as="hgroup" gap={{ base: 6, lg: 4 }}>
+                <Heading as="h1" w="full" textAlign="center">
+                  ポケモン一覧
+                </Heading>
+                <Text w="full" textAlign="center" fontSize={{ base: 'xl', sm: 'md' }}>
+                  好きなポケモンを探そう！
+                </Text>
+              </VStack>
+            </Box>
 
-          <Suspense fallback={<PokemonCollection.Loading />}>
-            <PokemonCollection />
-          </Suspense>
+            <Suspense fallback={<PokemonCollection.Loading />}>
+              <PokemonCollection />
+            </Suspense>
 
-          <Center>
-            <PokemonCollectionPagination />
-          </Center>
-        </VStack>
+            <Center>
+              <PokemonCollectionPagination />
+            </Center>
+          </VStack>
+        </Container>
       </Center>
     </Provider>
   )

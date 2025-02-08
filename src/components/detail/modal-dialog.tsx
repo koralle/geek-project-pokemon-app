@@ -42,8 +42,7 @@ export const PokemonModalDialog = ({ open, onClose, pokemonDetail }: PokemonModa
     <Modal
       open={open}
       onClose={onClose}
-      blockScrollOnMount={false}
-      size={{ base: '5xl', md: 'xl', sm: 'lg' }}
+      size={{ base: 'lg', md: '4xl', xl: '5xl' }}
       rounded="2xl"
       animation="bottom"
       duration={0.4}
@@ -59,14 +58,14 @@ export const PokemonModalDialog = ({ open, onClose, pokemonDetail }: PokemonModa
         <Heading id={modalLabelId} textAlign="center">
           #{pokemonDetail.nationalPokedexNumber} {pokemonDetail.name}
         </Heading>
-        <Grid templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(1, 1fr)' }} gap={{ base: '4rem', md: '2rem' }}>
+        <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={{ base: 8, md: 16 }}>
           <Box position="relative">
             <Center>
               <Image
                 src="/monster-ball.svg"
                 alt="monster-ball"
-                w={{ base: 360, md: 320 }}
-                h={{ base: 360, md: 320 }}
+                w={{ base: 320, md: 360 }}
+                h={{ base: 320, md: 360 }}
                 position="relative"
                 aria-hidden
               />
@@ -74,10 +73,9 @@ export const PokemonModalDialog = ({ open, onClose, pokemonDetail }: PokemonModa
                 position="absolute"
                 src={pokemonDetail.imageSrc}
                 alt={pokemonDetail.name}
-                w={{ base: 360, md: 320 }}
-                h={{ base: 360, md: 320 }}
+                w={{ base: 320, md: 360 }}
+                h={{ base: 320, md: 360 }}
                 decoding="auto"
-                fetchPriority="high"
               />
             </Center>
           </Box>
@@ -95,7 +93,7 @@ export const PokemonModalDialog = ({ open, onClose, pokemonDetail }: PokemonModa
       </ModalBody>
 
       <ModalFooter>
-        <Button onClick={onClose}>閉じる</Button>
+        <Button onClick={onClose}>戻る</Button>
       </ModalFooter>
     </Modal>
   )

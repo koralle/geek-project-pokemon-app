@@ -1,21 +1,29 @@
-import { Grid, Text } from '@yamada-ui/react'
+import { Box, Grid, type GridProps } from '@yamada-ui/react'
 import { type ReactNode, Suspense, useEffect } from 'react'
+import { useLastPage } from '../../hooks/use-last-page'
 import { usePokemonSpeciesList } from '../../hooks/use-pokemon-species-list'
 import { DEFAULT_LIMIT } from '../../lib/constants'
 import { usePageContext } from '../../lib/contexts/page-context'
 import { useSetTotalContext } from '../../lib/contexts/total-context'
 import { PokemonProfileCard } from './card'
 
-const Loading = () => {
-  return <Text>Loading...</Text>
-}
+const Loading = () => <Grid w="100%" h="100%" placeContent="center" />
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  return (
-    <Grid
-      templateColumns={{ base: 'repeat(4, 1fr)', lg: 'repeat(3, 1fr)', md: 'repeat(2, 1fr)' }}
-      gap={{ base: 6, lg: 6, md: 6, sm: 4 }}
-    >
+  const { isLastPage } = useLastPage()
+
+  const gridStyles = {
+    w: '100%',
+    templateColumns: { base: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' },
+    gap: { base: 4, sm: 4, md: 6 },
+  } as const satisfies Pick<Required<GridProps>, 'templateColumns' | 'gap' | 'w'>
+
+  return isLastPage ? (
+    <Box w="100%" h="100%">
+      <Grid {...gridStyles}>{children}</Grid>
+    </Box>
+  ) : (
+    <Grid {...gridStyles} h="100%">
       {children}
     </Grid>
   )

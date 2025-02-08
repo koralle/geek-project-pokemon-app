@@ -3,6 +3,7 @@ import { pokemonSpeciesIdSchema } from '../../entities'
 import type { PokemonSpeciesId } from '../../entities'
 import type { GetRawPokemonSpeciesListResponse } from '../../lib/api/pokemon-species-list'
 import { getRawPokemonSpeciesList } from '../../lib/api/pokemon-species-list'
+import { DEFAULT_LIMIT, DEFAULT_PAGE } from '../../lib/constants'
 import { parseNumberFromUrl } from '../../lib/utils/parse'
 
 export interface PokemonSpeciesList {
@@ -11,14 +12,20 @@ export interface PokemonSpeciesList {
 }
 
 const pokemonSpeciesListQueryOptions = (
-  { limit = 20, page = 1 }: { limit?: number; page?: number } = { limit: 20, page: 1 },
+  { limit = DEFAULT_LIMIT, page = DEFAULT_PAGE }: { limit?: number; page?: number } = {
+    limit: DEFAULT_LIMIT,
+    page: DEFAULT_PAGE,
+  },
 ) => ({
   queryKey: ['pokemon-species-list', { page, limit }],
   queryFn: () => getRawPokemonSpeciesList({ page, limit }),
 })
 
 const usePokemonSpeciesList = (
-  { limit = 20, page = 1 }: { limit?: number; page?: number } = { limit: 20, page: 1 },
+  { limit = DEFAULT_LIMIT, page = DEFAULT_PAGE }: { limit?: number; page?: number } = {
+    limit: DEFAULT_LIMIT,
+    page: DEFAULT_PAGE,
+  },
 ) => {
   const usePokemonSpeciesListQuery = useSuspenseQuery(pokemonSpeciesListQueryOptions({ page, limit }))
 

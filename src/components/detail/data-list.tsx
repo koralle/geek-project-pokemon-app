@@ -1,4 +1,4 @@
-import { DataList, DataListDescription, DataListItem, DataListTerm, HStack, Tag, Text } from '@yamada-ui/react'
+import { DataList, DataListDescription, DataListItem, DataListTerm, HStack, Tag, Text, VStack } from '@yamada-ui/react'
 import type { Ability, EggGroup, Type } from '../../entities'
 import type { PokedexNumber } from '../../entities/pokedex-number'
 import { translateAbility, translateEggGroup, translateType } from '../../lib/translaters'
@@ -26,10 +26,10 @@ const AbilityItem = ({ abilities }: AbilityProps) => {
       <DataListTerm>
         <Text fontWeight="bold">特性</Text>
       </DataListTerm>
-      <DataListDescription>
+      <DataListDescription alignItems="flex-start">
         {abilities.map(({ name, hidden }) => (
           <Text key={name}>
-            {translateAbility(name)} {hidden ? '（隠れとくせい）' : ''}
+            {translateAbility(name)} {hidden ? '（隠れ特性）' : ''}
           </Text>
         ))}
       </DataListDescription>
@@ -61,8 +61,8 @@ const TypeItem = ({ types }: { types: Type[] }) => {
       <DataListDescription>
         <HStack>
           {types.map((type) => (
-            <Tag key={type} variant="solid">
-              {translateType(type)}
+            <Tag key={type} variant="solid" colorScheme={type}>
+              <Text fontWeight="bold">{translateType(type)}</Text>
             </Tag>
           ))}
         </HStack>

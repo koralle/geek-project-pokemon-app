@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
-    <Box maxW={960} minW={320} w="full" px={{ base: 8, md: 4 }} py={6} h="100%">
+    <Box maxW={960} minW={320} w="100%" px={{ base: 4, md: 8 }} py={6} h="100%">
       {children}
     </Box>
   )

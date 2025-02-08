@@ -22,8 +22,8 @@ const BackgroundImage = () => {
     <Image
       src="/monster-ball.svg"
       alt="monster-ball"
-      w={{ base: '160px', md: '120px' }}
-      h={{ base: '160px', md: '120px' }}
+      w={{ base: '120px', md: '160px' }}
+      h={{ base: '120px', md: '160px' }}
       aria-hidden
       decoding="auto"
     />
@@ -76,15 +76,15 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
         <Card
           as="button"
           onClick={onOpen}
-          w="100%"
           rounded="2xl"
           onPointerDown={onPointerDown}
           position="relative"
           overflow="hidden"
           aria-labelledby={cardLabelId}
+          w="100%"
         >
           <CardHeader w="100%">
-            <Text fontWeight="bold" textAlign="start" w="100%">
+            <Text fontWeight="bold" textAlign="start">
               #{nationalPokedexNumber}
             </Text>
           </CardHeader>
@@ -98,8 +98,8 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
                   src={imageSrc}
                   alt={name}
                   decoding="auto"
-                  w={{ base: '160px', md: '120px' }}
-                  h={{ base: '160px', md: '120px' }}
+                  w={{ base: '120px', md: '160px' }}
+                  h={{ base: '120px', md: '160px' }}
                 />
               ) : (
                 <Text fontSize={{ base: 'lg', md: 'md' }} textAlign="center" fontWeight="bold" position="absolute">

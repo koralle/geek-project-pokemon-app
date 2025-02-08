@@ -1,4 +1,4 @@
-import { POKEAPI_BASE_URL } from '../../constants'
+import { DEFAULT_LIMIT, DEFAULT_PAGE, POKEAPI_BASE_URL } from '../../constants'
 import { getRawPokemonSpeciesListResponseSchema } from './schema'
 import type { GetRawPokemonSpeciesListResponse } from './schema'
 
@@ -8,7 +8,10 @@ interface GetPokemonSpeciesListOptions {
 }
 
 const getRawPokemonSpeciesList = async (
-  { limit = 20, page = 1 }: GetPokemonSpeciesListOptions = { limit: 20, page: 1 },
+  { limit = DEFAULT_LIMIT, page = DEFAULT_PAGE }: GetPokemonSpeciesListOptions = {
+    limit: DEFAULT_LIMIT,
+    page: DEFAULT_PAGE,
+  },
   { signal }: { signal?: AbortSignal } = {},
 ): Promise<GetRawPokemonSpeciesListResponse> => {
   try {
