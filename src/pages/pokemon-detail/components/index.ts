@@ -1,6 +1,0 @@
-export * from './ability-text'
-export * from './data-list'
-export * from './egg-group-text'
-export * from './height-text'
-export * from './type-tag'
-export * from './weight-text'

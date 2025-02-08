@@ -1,5 +1,0 @@
-export * from './ability'
-export * from './egg-group'
-export * from './pokemon'
-export * from './pokemon-species'
-export * from './type'

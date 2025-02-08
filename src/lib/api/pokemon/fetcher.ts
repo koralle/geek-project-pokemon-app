@@ -1,4 +1,4 @@
-import { POKEAPI_BASE_URL } from '../../'
+import { POKEAPI_BASE_URL } from '../../../lib/constants'
 import { getRawPokemonResponseSchema } from './schema'
 import type { GetRawPokemonResponse } from './schema'
 

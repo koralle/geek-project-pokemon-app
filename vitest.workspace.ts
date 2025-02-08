@@ -8,7 +8,7 @@ export default defineWorkspace([
       environment: 'node',
       include: ['src/**/fetcher.test.ts'],
       setupFiles: ['./setup-msw.ts'],
-      globals: true,
+      globals: true
     }
   },
   {
@@ -20,7 +20,7 @@ export default defineWorkspace([
       include: ['src/**/*.test.{ts,tsx}'],
       exclude: ['src/**/fetcher.test.ts'],
       setupFiles: ['./setup-msw.ts'],
-      globals: true,
+      globals: true
     }
   }
 ])

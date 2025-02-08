@@ -1,5 +1,5 @@
+export * from './pokemon'
+export * from './pokedex-number'
 export * from './ability'
 export * from './egg-group'
-export * from './pokedex-number'
-export * from './pokemon'
 export * from './type'
