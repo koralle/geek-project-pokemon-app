@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
-    <Box maxW={960} minW={320} w="full" px={{ base: 8, md: 4 }} py={6}>
+    <Box maxW={960} minW={320} w="full" px={{ base: 8, md: 4 }} py={6} h="100%">
       {children}
     </Box>
   )
@@ -55,7 +55,7 @@ const Header = () => {
 
 const Main = ({ children }: { children: ReactNode }) => {
   return (
-    <Center as="main" id="main" h="200svh">
+    <Center as="main" id="main" minH="100%">
       <Wrapper>{children}</Wrapper>
     </Center>
   )
