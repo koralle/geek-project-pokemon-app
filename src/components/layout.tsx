@@ -4,7 +4,14 @@ import { memo } from 'react'
 import type { ReactNode } from 'react'
 
 const Wrapper = ({ children }: { children: ReactNode }) => (
-  <Box maxW={960} minW={320} w="100%" px={{ base: 4, md: 8 }} py={6} h="100%">
+  <Box
+    maxW={960}
+    minW={320}
+    w="100%"
+    px={{ base: 4, md: 8 }}
+    py={6}
+    h="100%"
+  >
     {children}
   </Box>
 )
@@ -40,9 +47,19 @@ const Header = () => {
       <Wrapper>
         <HStack>
           {colorMode === 'light' ? (
-            <Image src="title.png" alt="ポケモンずかん" decoding="auto" fetchPriority="high" />
+            <Image
+              src="title.png"
+              alt="ポケモンずかん"
+              decoding="auto"
+              fetchPriority="high"
+            />
           ) : (
-            <Image src="title-dark.png" alt="ポケモンずかん" decoding="auto" fetchPriority="high" />
+            <Image
+              src="title-dark.png"
+              alt="ポケモンずかん"
+              decoding="auto"
+              fetchPriority="high"
+            />
           )}
           <Spacer />
           <ToggleColorModeButton />
@@ -53,7 +70,11 @@ const Header = () => {
 }
 
 const Main = ({ children }: { children: ReactNode }) => (
-  <Center as="main" id="main" minH="100%">
+  <Center
+    as="main"
+    id="main"
+    minH="100%"
+  >
     <Wrapper>{children}</Wrapper>
   </Center>
 )
@@ -70,7 +91,12 @@ const Footer = memo(() => (
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <Grid minW="100svi" minH="100svb" templateRows="max-content 1fr max-content" gap={0}>
+    <Grid
+      minW="100svi"
+      minH="100svb"
+      templateRows="max-content 1fr max-content"
+      gap={0}
+    >
       <Header />
       <Main>{children}</Main>
       <Footer />

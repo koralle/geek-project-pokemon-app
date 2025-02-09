@@ -9,7 +9,11 @@ import { useSetTotalContext, useTotalContext } from '../../lib/contexts/total-co
 import { PokemonProfileCard } from './card'
 
 const SkeltonPokemonCollection = memo(() => (
-  <Grid w="100%" h="100%" placeContent="center">
+  <Grid
+    w="100%"
+    h="100%"
+    placeContent="center"
+  >
     <Center>
       <Image
         src="/monster-ball.svg"
@@ -20,7 +24,11 @@ const SkeltonPokemonCollection = memo(() => (
         decoding="auto"
         opacity={0.8}
       />
-      <Text position="absolute" fontSize={{ base: '2xl', md: '4xl' }} fontWeight="bold">
+      <Text
+        position="absolute"
+        fontSize={{ base: '2xl', md: '4xl' }}
+        fontWeight="bold"
+      >
         Now Loading...
       </Text>
     </Center>
@@ -48,11 +56,17 @@ const Layout = ({ children }: { children: ReactNode }) => {
   } as const satisfies Pick<Required<GridProps>, 'templateColumns' | 'gap' | 'w'>
 
   return isLastPage ? (
-    <Box w="100%" h="100%">
+    <Box
+      w="100%"
+      h="100%"
+    >
       <Grid {...gridStyles}>{children}</Grid>
     </Box>
   ) : (
-    <Grid {...gridStyles} h="100%">
+    <Grid
+      {...gridStyles}
+      h="100%"
+    >
       {children}
     </Grid>
   )
@@ -72,7 +86,10 @@ export const PokemonCollection = () => {
   return (
     <Layout>
       {results.map((result) => (
-        <Suspense key={result.id} fallback={<PokemonProfileCard.Loading />}>
+        <Suspense
+          key={result.id}
+          fallback={<PokemonProfileCard.Loading />}
+        >
           <PokemonProfileCard id={result.id} />
         </Suspense>
       ))}
