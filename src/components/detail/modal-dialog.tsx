@@ -42,16 +42,32 @@ export const PokemonModalDialog = memo(({ open, onClose, pokemonDetail }: Pokemo
       <ModalOverlay backdropFilter="blur(10px)" />
 
       <ModalHeader p={6}>
-        <Text textAlign="center" w="100%">
+        <Text
+          textAlign="center"
+          w="100%"
+        >
           ポケモン詳細
         </Text>
       </ModalHeader>
 
-      <ModalBody as={VStack} alignItems="center" gap={{ base: 8, lg: 10 }} p={6} pt={0} my={0}>
-        <Heading id={modalLabelId} textAlign="center">
+      <ModalBody
+        as={VStack}
+        alignItems="center"
+        gap={{ base: 8, lg: 10 }}
+        p={6}
+        pt={0}
+        my={0}
+      >
+        <Heading
+          id={modalLabelId}
+          textAlign="center"
+        >
           #{nationalPokedexNumber} {name}
         </Heading>
-        <Grid templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }} gap={{ base: 8, lg: 10 }}>
+        <Grid
+          templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+          gap={{ base: 8, lg: 10 }}
+        >
           <Box position="relative">
             <Center>
               <Image

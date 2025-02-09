@@ -41,7 +41,11 @@ const TypeItem = ({ types }: { types: Type[] }) => (
     descriptionNode={
       <HStack>
         {types.map((type) => (
-          <Tag key={type} variant="solid" colorScheme={type}>
+          <Tag
+            key={type}
+            variant="solid"
+            colorScheme={type}
+          >
             <Text fontWeight="bold">{translateType(type)}</Text>
           </Tag>
         ))}
@@ -99,7 +103,11 @@ export const PokemonDataList = ({
   weight,
   nationalPokedexNumber,
 }: PokemonDataListProps) => (
-  <DataList col={2} rowGap="1rem" columnGap="2rem">
+  <DataList
+    col={2}
+    rowGap="1rem"
+    columnGap="2rem"
+  >
     <NationalPokedexNumberItem nationalPokedexNumber={nationalPokedexNumber} />
     <TypeItem types={types} />
     <HeightItem height={height} />

@@ -13,7 +13,10 @@ import { customConfig } from './styles/config'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <UIProvider theme={theme} config={customConfig}>
+      <UIProvider
+        theme={theme}
+        config={customConfig}
+      >
         <Layout>
           <App />
         </Layout>

@@ -30,17 +30,30 @@ const BackgroundImage = memo(() => (
 ))
 
 const SkeltonPokemonProfileCard = memo(() => (
-  <Card w="full" rounded="2xl" as="button" disabled>
+  <Card
+    w="full"
+    rounded="2xl"
+    as="button"
+    disabled
+  >
     <CardHeader>
       <Skeleton w="100%">
         <Text>Skelton</Text>
       </Skeleton>
     </CardHeader>
-    <CardBody as={VStack} alignItems="center" gap={6} paddingBlockStart={6}>
+    <CardBody
+      as={VStack}
+      alignItems="center"
+      gap={6}
+      paddingBlockStart={6}
+    >
       <Center>
         <BackgroundImage />
 
-        <Text position="absolute" fontWeight="bold">
+        <Text
+          position="absolute"
+          fontWeight="bold"
+        >
           Now
           <br />
           Loading...
@@ -81,11 +94,19 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
           w="100%"
         >
           <CardHeader w="100%">
-            <Text fontWeight="bold" textAlign="start">
+            <Text
+              fontWeight="bold"
+              textAlign="start"
+            >
               #{nationalPokedexNumber}
             </Text>
           </CardHeader>
-          <CardBody as={VStack} alignItems="center" gap={6} paddingBlockStart={6}>
+          <CardBody
+            as={VStack}
+            alignItems="center"
+            gap={6}
+            paddingBlockStart={6}
+          >
             <Center>
               <BackgroundImage />
 
@@ -99,19 +120,35 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
                   h={{ base: 120, md: 160 }}
                 />
               ) : (
-                <Text fontSize={{ base: 'lg', md: 'md' }} textAlign="center" fontWeight="bold" position="absolute">
+                <Text
+                  fontSize={{ base: 'lg', md: 'md' }}
+                  textAlign="center"
+                  fontWeight="bold"
+                  position="absolute"
+                >
                   Not Found
                 </Text>
               )}
             </Center>
-            <Text id={cardLabelId} textAlign="center" fontWeight="bold">
+            <Text
+              id={cardLabelId}
+              textAlign="center"
+              fontWeight="bold"
+            >
               {name}
             </Text>
           </CardBody>
-          <Ripple ripples={ripples} onClear={onClear} />
+          <Ripple
+            ripples={ripples}
+            onClear={onClear}
+          />
         </Card>
       </Motion>
-      <PokemonModalDialog open={open} onClose={onClose} pokemonDetail={data} />
+      <PokemonModalDialog
+        open={open}
+        onClose={onClose}
+        pokemonDetail={data}
+      />
     </>
   )
 }
