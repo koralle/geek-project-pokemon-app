@@ -34,7 +34,6 @@ const Header = () => {
             src="title.png"
             alt="ポケモンずかん"
             decoding="auto"
-            fetchPriority="high"
           />
           <Spacer />
         </HStack>
