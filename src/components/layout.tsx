@@ -1,4 +1,5 @@
-import { Box, Center, Grid, HStack, Image, Spacer, Text } from '@yamada-ui/react'
+import { MoonIcon, SunIcon } from '@yamada-ui/lucide'
+import { Box, Center, Grid, HStack, IconButton, Image, Spacer, Text, useColorMode } from '@yamada-ui/react'
 import { memo } from 'react'
 import type { ReactNode } from 'react'
 
@@ -15,7 +16,22 @@ const Wrapper = ({ children }: { children: ReactNode }) => (
   </Box>
 )
 
+const ToggleColorModeButton = () => {
+  const { colorMode, toggleColorMode } = useColorMode()
+
+  return (
+    <IconButton
+      icon={colorMode === 'dark' ? <SunIcon fontSize={6} /> : <MoonIcon fontSize={6} />}
+      variant="primary"
+      fullRounded
+      onClick={toggleColorMode}
+    />
+  )
+}
+
 const Header = () => {
+  const { colorMode } = useColorMode()
+
   return (
     <Center
       as="header"
@@ -30,12 +46,23 @@ const Header = () => {
     >
       <Wrapper>
         <HStack>
-          <Image
-            src="title.png"
-            alt="ポケモンずかん"
-            decoding="auto"
-          />
+          {colorMode === 'light' ? (
+            <Image
+              src="title.png"
+              alt="ポケモンずかん"
+              decoding="auto"
+              fetchPriority="high"
+            />
+          ) : (
+            <Image
+              src="title-dark.png"
+              alt="ポケモンずかん"
+              decoding="auto"
+              fetchPriority="high"
+            />
+          )}
           <Spacer />
+          <ToggleColorModeButton />
         </HStack>
       </Wrapper>
     </Center>
