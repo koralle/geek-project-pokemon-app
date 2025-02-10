@@ -4,6 +4,7 @@ import { UIProvider } from '@yamada-ui/react'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './app'
+import { Layout } from './components/layout'
 import { queryClient } from './lib/query-client'
 import { customConfig } from './styles/config'
 
@@ -12,7 +13,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <UIProvider config={customConfig}>
-        <App />
+        <Layout>
+          <App />
+        </Layout>
       </UIProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
