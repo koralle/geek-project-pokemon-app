@@ -44,6 +44,7 @@ const TypeItem = ({ types }: { types: Type[] }) => (
           <Tag
             key={type}
             variant="solid"
+            colorScheme={type}
           >
             <Text fontWeight="bold">{translateType(type)}</Text>
           </Tag>
