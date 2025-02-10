@@ -1,7 +1,8 @@
-import { Card, CardBody, CardHeader, Center, Image, Skeleton, Text, VStack } from '@yamada-ui/react'
+import { Card, CardBody, CardHeader, Center, Image, Skeleton, Text, VStack, useDisclosure } from '@yamada-ui/react'
 import { memo, useId } from 'react'
 import type { PokemonSpeciesId } from '../../entities'
 import { usePokemon } from '../../hooks/use-pokemon'
+import { PokemonModalDialog } from '../detail/modal-dialog'
 
 const BackgroundImage = memo(() => (
   <Image
@@ -61,12 +62,15 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
   const { data } = usePokemon(id)
   const { name, nationalPokedexNumber, imageSrc } = data
 
+  const { open, onOpen, onClose } = useDisclosure()
+
   const cardLabelId = useId()
 
   return (
     <>
       <Card
         as="button"
+        onClick={onOpen}
         rounded="2xl"
         aria-labelledby={cardLabelId}
         w="100%"
@@ -117,6 +121,11 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
           </Text>
         </CardBody>
       </Card>
+      <PokemonModalDialog
+        open={open}
+        onClose={onClose}
+        pokemonDetail={data}
+      />
     </>
   )
 }
