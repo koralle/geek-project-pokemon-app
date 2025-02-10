@@ -5,10 +5,12 @@ import {
   Center,
   Image,
   Motion,
+  Ripple,
   Skeleton,
   Text,
   VStack,
   useDisclosure,
+  useRipple,
 } from '@yamada-ui/react'
 import { memo, useId } from 'react'
 import type { PokemonSpeciesId } from '../../entities'
@@ -74,6 +76,7 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
   const { name, nationalPokedexNumber, imageSrc } = data
 
   const { open, onOpen, onClose } = useDisclosure()
+  const { onPointerDown, ripples, onClear } = useRipple()
 
   const cardLabelId = useId()
 
@@ -84,6 +87,9 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
           as="button"
           onClick={onOpen}
           rounded="2xl"
+          onPointerDown={onPointerDown}
+          position="relative"
+          overflow="hidden"
           aria-labelledby={cardLabelId}
           w="100%"
         >
@@ -132,6 +138,10 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
               {name}
             </Text>
           </CardBody>
+          <Ripple
+            ripples={ripples}
+            onClear={onClear}
+          />
         </Card>
       </Motion>
       <PokemonModalDialog
