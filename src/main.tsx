@@ -6,13 +6,17 @@ import { createRoot } from 'react-dom/client'
 import { App } from './app'
 import { Layout } from './components/layout'
 import { queryClient } from './lib/query-client'
+import { theme } from './styles'
 import { customConfig } from './styles/config'
 
 // biome-ignore lint/style/noNonNullAssertion:
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <UIProvider config={customConfig}>
+      <UIProvider
+        theme={theme}
+        config={customConfig}
+      >
         <Layout>
           <App />
         </Layout>
