@@ -1,4 +1,15 @@
-import { Card, CardBody, CardHeader, Center, Image, Skeleton, Text, VStack, useDisclosure } from '@yamada-ui/react'
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Center,
+  Image,
+  Motion,
+  Skeleton,
+  Text,
+  VStack,
+  useDisclosure,
+} from '@yamada-ui/react'
 import { memo, useId } from 'react'
 import type { PokemonSpeciesId } from '../../entities'
 import { usePokemon } from '../../hooks/use-pokemon'
@@ -68,59 +79,61 @@ export const PokemonProfileCard = ({ id }: PokemonProfileCardProps) => {
 
   return (
     <>
-      <Card
-        as="button"
-        onClick={onOpen}
-        rounded="2xl"
-        aria-labelledby={cardLabelId}
-        w="100%"
-      >
-        <CardHeader w="100%">
-          <Text
-            fontWeight="bold"
-            textAlign="start"
-          >
-            #{nationalPokedexNumber}
-          </Text>
-        </CardHeader>
-        <CardBody
-          as={VStack}
-          alignItems="center"
-          gap={6}
-          paddingBlockStart={6}
+      <Motion whileHover={{ scale: 1.05, translateY: -8 }}>
+        <Card
+          as="button"
+          onClick={onOpen}
+          rounded="2xl"
+          aria-labelledby={cardLabelId}
+          w="100%"
         >
-          <Center>
-            <BackgroundImage />
-
-            {imageSrc ? (
-              <Image
-                position="absolute"
-                src={imageSrc}
-                alt={name}
-                decoding="auto"
-                w={{ base: 120, md: 160 }}
-                h={{ base: 120, md: 160 }}
-              />
-            ) : (
-              <Text
-                fontSize={{ base: 'lg', md: 'md' }}
-                textAlign="center"
-                fontWeight="bold"
-                position="absolute"
-              >
-                Not Found
-              </Text>
-            )}
-          </Center>
-          <Text
-            id={cardLabelId}
-            textAlign="center"
-            fontWeight="bold"
+          <CardHeader w="100%">
+            <Text
+              fontWeight="bold"
+              textAlign="start"
+            >
+              #{nationalPokedexNumber}
+            </Text>
+          </CardHeader>
+          <CardBody
+            as={VStack}
+            alignItems="center"
+            gap={6}
+            paddingBlockStart={6}
           >
-            {name}
-          </Text>
-        </CardBody>
-      </Card>
+            <Center>
+              <BackgroundImage />
+
+              {imageSrc ? (
+                <Image
+                  position="absolute"
+                  src={imageSrc}
+                  alt={name}
+                  decoding="auto"
+                  w={{ base: 120, md: 160 }}
+                  h={{ base: 120, md: 160 }}
+                />
+              ) : (
+                <Text
+                  fontSize={{ base: 'lg', md: 'md' }}
+                  textAlign="center"
+                  fontWeight="bold"
+                  position="absolute"
+                >
+                  Not Found
+                </Text>
+              )}
+            </Center>
+            <Text
+              id={cardLabelId}
+              textAlign="center"
+              fontWeight="bold"
+            >
+              {name}
+            </Text>
+          </CardBody>
+        </Card>
+      </Motion>
       <PokemonModalDialog
         open={open}
         onClose={onClose}
