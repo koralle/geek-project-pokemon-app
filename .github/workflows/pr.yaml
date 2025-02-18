@@ -1,0 +1,42 @@
+name: Auto PR Rebase
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - 'chapter_00/start-at-this-branch'
+
+jobs:
+  rebase-branches:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'chapter_00/start-at-this-branch'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch:
+          - 'chapter_01/setup-yamada-ui'
+          - 'chapter_02/implement-global-layout'
+          - 'chapter_03/implement-pokemon-list'
+          - 'chapter_04/implement-detail-dialog'
+          - 'chapter_05/improve-ui-design'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Rebase branch
+        run: |
+          git fetch origin ${{ matrix.branch }}
+          git checkout ${{ matrix.branch }}
+          git rebase origin/chapter_00/start-at-this-branch
+
+      - name: Push changes
+        run: |
+          git push --force-with-lease origin ${{ matrix.branch }}
