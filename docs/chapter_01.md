@@ -106,7 +106,7 @@ export const customConfig = extendConfig({
   import { createRoot } from 'react-dom/client'
   import { App } from './app'
   import { queryClient } from './lib/query-client'
-  import { customConfig } from './styles/config'
++ import { customConfig } from './styles/config'
   
   // biome-ignore lint/style/noNonNullAssertion:
   createRoot(document.getElementById('root')!).render(
