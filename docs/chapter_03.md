@@ -467,7 +467,6 @@
 
 ```diff
 + import { Pagination, useBreakpoint } from '@yamada-ui/react'
-+ import { startTransition } from 'react'
 + import { DEFAULT_LIMIT, DEFAULT_PAGE } from '../../lib/constants'
 + import { usePageContext, useSetPageContext } from '../../lib/contexts/page-context'
 + import { useTotalContext } from '../../lib/contexts/total-context'
@@ -488,9 +487,7 @@
 +   const { isMobile } = useMobile()
 + 
 +   const handlePageChange = (newPage: number) => {
-+     startTransition(() => {
-+       setPage(() => newPage)
-+     })
++     setPage(() => newPage)
 +   }
 + 
 +   return (
