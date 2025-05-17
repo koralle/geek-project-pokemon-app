@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: chore
+      prefix-development: chore
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
