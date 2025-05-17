@@ -24,7 +24,7 @@
     "theme": "yamada-cli tokens ./src/styles"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.66.0",
+    "@tanstack/react-query": "^5.76.1",
     "@yamada-ui/lucide": "^1.10.3",
     "@yamada-ui/react": "^1.7.4",
     "react": "^18.3.1",
