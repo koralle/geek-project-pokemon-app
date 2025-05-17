@@ -3,11 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": ">=22",
-    "npm": ">=10",
-    "pnpm": "please use npm!",
-    "yarn": "please use npm!"
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11"
+    },
+    "runtime": {
+      "name": "node",
+      "version": ">=22"
+    }
   },
   "scripts": {
     "dev": "vite",
