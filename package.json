@@ -38,7 +38,7 @@
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@cloudflare/workers-types": "^4.20250517.0",
+    "@cloudflare/workers-types": "^4.20250519.0",
     "@tanstack/react-query-devtools": "^5.76.1",
     "@testing-library/react": "^16.3.0",
     "@tsconfig/strictest": "^2.0.5",
