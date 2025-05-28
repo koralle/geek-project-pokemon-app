@@ -1,8 +1,6 @@
 import { Box, Center, Container, Heading, Text, VStack } from '@yamada-ui/react'
-import { Suspense, useId, useState } from 'react'
+import { useId, useState } from 'react'
 import type { ReactNode } from 'react'
-import { PokemonCollection } from './components/list/collection'
-import { PokemonCollectionPagination } from './components/list/pagination'
 import { PageContext, SetPageContext } from './lib/contexts/page-context'
 import { SetTotalContext, TotalContext } from './lib/contexts/total-context'
 
@@ -58,14 +56,6 @@ export const App = () => {
                 </Text>
               </VStack>
             </Box>
-
-            <Suspense fallback={<PokemonCollection.Loading />}>
-              <PokemonCollection />
-            </Suspense>
-
-            <Center>
-              <PokemonCollectionPagination />
-            </Center>
           </VStack>
         </Container>
       </Center>
