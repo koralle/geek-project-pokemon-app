@@ -39,10 +39,10 @@ git clone https://github.com/koralle/geek-project-pokemon-app
 
 デフォルトのブランチは `main` です。そのままだとアプリケーションは既に完成してしまっています。
 
-リモートの `chapter_00/start-at-this-branch` ブランチをローカルで checkout してください。
+リモートの `start-at-this-branch` ブランチをローカルで checkout してください。
 
 ```bash
-git checkout -b develop origin/chapter_00/start-at-this-branch
+git checkout -b develop origin/start-at-this-branch
 ```
 
 > [!NOTE]
